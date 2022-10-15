@@ -34,9 +34,6 @@ public class UserDaoImp implements UserDao {
    @Override
    @SuppressWarnings("unchecked")
    public List<User> listGetUser(String model, int series){
-      /*TypedQuery<User> query1=sessionFactory.getCurrentSession().createQuery("from User " + "where Car.model = model ");
-      return query1.getResultList();*/
-      //String hql = "FROM User where Car.model= :modelParam";
       Query query = sessionFactory.getCurrentSession().createQuery("FROM User " + "where car.model= :modelParam and car.series= :seriesParam ");
       query.setParameter("modelParam", model);
       query.setParameter("seriesParam", series);
